@@ -1,11 +1,12 @@
 .Card {
   background-color: #fff;
   height: 350px;
-  width: 250px;
+  width: 300px;
   border-radius: 25px;
   padding: 25px;
   display: block;
   margin: auto;
+  border: 2px solid #ffe031 !important;
 }
 
 footer {

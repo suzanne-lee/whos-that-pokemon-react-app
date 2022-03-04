@@ -4,54 +4,59 @@ import logo from "./images/Whos-that-Pokemon.png";
 import Card from "./Card";
 import PokemonCard from "./PokemonCard";
 import axios from "axios";
-
 import { useEffect, useState } from "react";
 import React, { Component } from "react";
 
-function App() {
+function App(props) {
+  const [pokeList, setPokeList] = useState(props.pokeList);
   const [currentPokemon, setCurrentPokemon] = useState([]);
-  const pokeList = [];
+  const [userInput, setUserInput] = useState("");
 
-  for (let i = 1; i <= 151; i++) {
-    pokeList.push(i);
-  }
-
-  //console.log(pokeList);
-
-  function shuffle(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-  }
-
-  shuffle(pokeList);
-  //console.log(pokeList);
+  //console.log(pokeList[0]);
 
   const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokeList[0]}/`;
   // pokeName = data.name
 
   function onResponse(response) {
     //console.log(response);
-
     let pokeName = response.data.name;
     let pokeId = pokeList[0];
     //console.log(pokeName);
+    //console.log(pokeId);
     setCurrentPokemon([pokeName, pokeId]);
   }
 
-  axios.get(apiUrl).then(onResponse);
+  //axios.get(apiUrl).then(onResponse);
+  useEffect(() => {
+    axios.get(apiUrl).then(onResponse);
+  }, [apiUrl]);
+
+  function handleInputChange(event) {
+    // alert("A name was submitted: " + this.state.value);
+    setUserInput(event.target.value);
+    console.log(event.target.value);
+  }
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} alt="Who's That Pokemon?" width="40%" />
       </header>
-      <h1>How to Play: </h1>
+      <h3>How to Play: </h3>
       <PokemonCard pokemon={currentPokemon} />
-      <Card />
+      <form>
+        <div className="form-group">
+          <label htmlFor="input">Enter your guess below:</label>
+          <input
+            type="text"
+            className="form-control"
+            id="input"
+            placeholder="Who's That Pokemon?"
+            onChange={handleInputChange}
+            value={userInput}
+          />
+        </div>
+      </form>
       <footer>
         Made by{" "}
         <a
