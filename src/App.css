@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+  background-color: #d1e5d9;
+  background-image: url("./images/pokemon-green-background.png"),
+    linear-gradient(180deg, #e5f1ec 0%, #e5f1ec 322px, #d1e5d9 322px);
+  background-repeat: no-repeat;
+  background-position: center 83px, 0 0;
+  background-size: 2250px, auto;
+  font-family: monospace;
+  height: 100%;
+}
