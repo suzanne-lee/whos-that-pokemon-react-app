@@ -11,9 +11,11 @@ function App(props) {
   const [pokeList, setPokeList] = useState(props.pokeList);
   const [currentPokemon, setCurrentPokemon] = useState([]);
   const [userInput, setUserInput] = useState("");
+  const [isHidden, setisHidden] = useState(true);
 
   //console.log(pokeList[0]);
 
+  // let currPokeId = pokeList.shift();
   const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokeList[0]}/`;
   // pokeName = data.name
 
@@ -35,6 +37,20 @@ function App(props) {
     // alert("A name was submitted: " + this.state.value);
     setUserInput(event.target.value);
     console.log(event.target.value);
+  }
+
+  useEffect(() => {
+    if (userInput.toLowerCase() === currentPokemon[0]) {
+      alert("HELLO");
+      setisHidden(false);
+      revealPokemon();
+    }
+  }, [userInput]);
+
+  function revealPokemon() {
+    document.querySelector(".pokeImg").style.webkitFilter = "grayscale(0%)";
+    document.querySelector(".pokeImg").style.webkitFilter = "contrast(100%)";
+    document.querySelector(".pokeImg").style.webkitFilter = "brightness(100%)";
   }
 
   return (
