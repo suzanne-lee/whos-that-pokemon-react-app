@@ -6,9 +6,18 @@
   padding: 25px;
   display: block;
   margin: auto;
-  border: 2px solid #ffe031 !important;
+  border: 10px solid #acacac;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 footer {
   padding: 50px;
+}
+
+.pokeImg {
+  width: 80%;
+  -webkit-filter: grayscale(100%);
+  -webkit-filter: contrast(0%);
+  -webkit-filter: brightness(0%);
 }

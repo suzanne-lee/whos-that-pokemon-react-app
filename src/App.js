@@ -40,9 +40,15 @@ function App(props) {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} alt="Who's That Pokemon?" width="40%" />
+        <img className="titleImg" src={logo} alt="Who's That Pokemon?" />
       </header>
-      <h3>How to Play: </h3>
+      <h3>How to Play:</h3>
+      <div className="instructionTextContainer">
+        <p>
+          Enter your guess below. When you get the answer right, the next
+          Pokemon will appear.
+        </p>
+      </div>
       <PokemonCard pokemon={currentPokemon} />
       <form>
         <div className="form-group">

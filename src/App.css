@@ -10,6 +10,17 @@
   height: 100%;
 }
 
+.titleImg {
+  width: 575px;
+  padding-top: 75px;
+  padding-bottom: 50px;
+}
+
+.instructionTextContainer {
+  width: 60%;
+  margin: auto;
+}
+
 form {
   width: 300px;
   display: block;

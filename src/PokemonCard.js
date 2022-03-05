@@ -14,7 +14,7 @@ function PokemonCard(props) {
 
   return (
     <div className="PokemonCard">
-      <Card pokeName={props.pokemon[0]} />
+      <Card pokeName={props.pokemon[0]} pokeId={props.pokemon[1]} />
     </div>
   );
 }
