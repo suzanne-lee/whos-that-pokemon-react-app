@@ -41,7 +41,7 @@ function App(props) {
 
   useEffect(() => {
     if (userInput.toLowerCase() === currentPokemon[0]) {
-      alert("HELLO");
+      // alert("HELLO");
       setisHidden(false);
       revealPokemon();
     }
@@ -78,7 +78,11 @@ function App(props) {
             value={userInput}
           />
         </div>
+        <button type="submit" class="btn btn-primary" disabled>
+          Next
+        </button>
       </form>
+      <hr />
       <footer>
         Made by{" "}
         <a

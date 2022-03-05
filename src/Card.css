@@ -7,12 +7,27 @@
   display: block;
   margin: auto;
   border: 10px solid #acacac;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
-footer {
-  padding: 50px;
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+#flex-item1,
+#flex-item2 {
+  flex: 1;
+  flex-direction: column;
+}
+
+#flex-item1 {
+  text-align: left;
+}
+
+#flex-item2 {
+  text-align: right;
 }
 
 .pokeImg {
