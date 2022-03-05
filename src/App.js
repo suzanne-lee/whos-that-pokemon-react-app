@@ -78,7 +78,7 @@ function App(props) {
             value={userInput}
           />
         </div>
-        <button type="submit" class="btn btn-primary" disabled>
+        <button type="submit" className="btn btn-primary" disabled>
           Next
         </button>
       </form>

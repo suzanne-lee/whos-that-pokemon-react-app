@@ -7,7 +7,11 @@ function Card(props) {
   let paddedPokeId = `${props.pokeId}`.padStart(3, 0);
 
   function capitalize(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+    if (string !== undefined) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    } else {
+      return string;
+    }
   }
 
   return (
