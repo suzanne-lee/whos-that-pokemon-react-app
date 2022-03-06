@@ -22,11 +22,8 @@ function App(props) {
   // pokeName = data.name
 
   function onResponse(response) {
-    //console.log(response);
     let pokeName = response.data.name;
     let pokeId = pokeList[0];
-    //console.log(pokeName);
-    //console.log(pokeId);
     setCurrentPokemon([pokeName, pokeId]);
   }
 
@@ -41,9 +38,11 @@ function App(props) {
     console.log(event.target.value);
   }
 
-  function getNextPokemon() {
-    setSeenCount(seenCount + 1);
+  function getNextPokemon(e) {
+    e.preventDefault();
     hidePokemon();
+    setUserInput("");
+    setSeenCount(seenCount + 1);
     let nextPokemonId = pokeList.shift();
     const apiUrl = `https://pokeapi.co/api/v2/pokemon/${nextPokemonId}/`;
     axios.get(apiUrl).then(onResponse);
@@ -55,11 +54,10 @@ function App(props) {
       setisHidden(false);
       revealPokemon();
       setCaughtCount(caughtCount + 1);
-      //getNextPokemon();
-      setTimeout(() => {
+      // getNextPokemon();
+      /*setTimeout(() => {
         getNextPokemon();
-        setUserInput("");
-      }, 2000);
+      }, 2000);*/
       // document.getElementById("input").reset();
     }
   }, [userInput]);
@@ -104,10 +102,19 @@ function App(props) {
             value={userInput}
           />
         </div>
-        <button type="submit" className="btn btn-primary" disabled>
+        <button
+          type="submit"
+          className="btn btn-primary"
+          onClick={getNextPokemon}
+        >
           Next
         </button>
       </form>
+
+      <button type="button" className="btn btn-link" onClick={revealPokemon}>
+        I don't know!
+      </button>
+
       <hr />
       <footer>
         Made by{" "}
