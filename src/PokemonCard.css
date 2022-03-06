@@ -1,2 +1,5 @@
 .PokemonCard {
+  font-family: "Roboto", sans-serif !important;
+  font-weight: 600;
+  font-size: 18px;
 }
