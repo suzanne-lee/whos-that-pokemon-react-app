@@ -21,6 +21,10 @@ function Card(props) {
         <div id="flex-item2">#{paddedPokeId}</div>
       </div>
       <img className="pokeImg" src={`/poke_pics/${paddedPokeId}.webp`} />
+      <span className="badge bg-secondary">{capitalize(props.pokeType1)}</span>
+      <span className="badge bg-secondary">
+        {props.pokeType2 == null ? "" : capitalize(props.pokeType2)}
+      </span>
     </div>
   );
 }

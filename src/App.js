@@ -24,7 +24,23 @@ function App(props) {
   function onResponse(response) {
     let pokeName = response.data.name;
     let pokeId = pokeList[0];
-    setCurrentPokemon([pokeName, pokeId]);
+    // console.log(response);
+
+    let typeArr = response.data.types;
+
+    // console.log(typeArr);
+
+    let pokeType1 = typeArr[0].type.name;
+    let pokeType2 = null;
+
+    if (typeArr.length === 2) {
+      pokeType2 = typeArr[1].type.name;
+    }
+
+    console.log(pokeType1);
+    console.log(pokeType2);
+
+    setCurrentPokemon([pokeName, pokeId, pokeType1, pokeType2]);
   }
 
   //axios.get(apiUrl).then(onResponse);

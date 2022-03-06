@@ -108,7 +108,12 @@ function PokemonCard(props) {
 
   return (
     <div className="PokemonCard">
-      <Card pokeName={props.pokemon[0]} pokeId={props.pokemon[1]} />
+      <Card
+        pokeName={props.pokemon[0]}
+        pokeId={props.pokemon[1]}
+        pokeType1={props.pokemon[2]}
+        pokeType2={props.pokemon[3]}
+      />
     </div>
   );
 }

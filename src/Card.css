@@ -28,6 +28,8 @@
 
 #flex-item2 {
   text-align: right;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
 }
 
 .pokeImg {
