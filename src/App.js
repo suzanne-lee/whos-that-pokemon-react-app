@@ -12,6 +12,8 @@ function App(props) {
   const [currentPokemon, setCurrentPokemon] = useState([]);
   const [userInput, setUserInput] = useState("");
   const [isHidden, setisHidden] = useState(true);
+  const [seenCount, setSeenCount] = useState(1);
+  const [caughtCount, setCaughtCount] = useState(0);
 
   //console.log(pokeList[0]);
 
@@ -39,11 +41,26 @@ function App(props) {
     console.log(event.target.value);
   }
 
+  function getNextPokemon() {
+    setSeenCount(seenCount + 1);
+    hidePokemon();
+    let nextPokemonId = pokeList.shift();
+    const apiUrl = `https://pokeapi.co/api/v2/pokemon/${nextPokemonId}/`;
+    axios.get(apiUrl).then(onResponse);
+  }
+
   useEffect(() => {
     if (userInput.toLowerCase() === currentPokemon[0]) {
       // alert("HELLO");
       setisHidden(false);
       revealPokemon();
+      setCaughtCount(caughtCount + 1);
+      //getNextPokemon();
+      setTimeout(() => {
+        getNextPokemon();
+        setUserInput("");
+      }, 2000);
+      // document.getElementById("input").reset();
     }
   }, [userInput]);
 
@@ -51,6 +68,12 @@ function App(props) {
     document.querySelector(".pokeImg").style.webkitFilter = "grayscale(0%)";
     document.querySelector(".pokeImg").style.webkitFilter = "contrast(100%)";
     document.querySelector(".pokeImg").style.webkitFilter = "brightness(100%)";
+  }
+
+  function hidePokemon() {
+    document.querySelector(".pokeImg").style.webkitFilter = "grayscale(100%)";
+    document.querySelector(".pokeImg").style.webkitFilter = "contrast(0%)";
+    document.querySelector(".pokeImg").style.webkitFilter = "brightness(0%)";
   }
 
   return (
@@ -64,6 +87,9 @@ function App(props) {
           Enter your guess below. When you get the answer right, the next
           Pokemon will appear.
         </p>
+      </div>
+      <div>
+        {caughtCount} Caught / {seenCount} Seen
       </div>
       <PokemonCard pokemon={currentPokemon} />
       <form>
