@@ -6,7 +6,8 @@
   padding: 25px;
   display: block;
   margin: auto;
-  border: 10px solid #acacac;
+  /*border: 10px solid #acacac;*/
+  border: 10px solid;
   margin-top: 25px;
   margin-bottom: 25px;
 }
@@ -37,4 +38,12 @@
   -webkit-filter: grayscale(100%);
   -webkit-filter: contrast(0%);
   -webkit-filter: brightness(0%);
+}
+
+.normal {
+  background-color: #a6a686;
+}
+
+.poison {
+  background-color: #a040a0;
 }
