@@ -12,7 +12,7 @@
   margin-bottom: 25px;
 }
 
-.flex-container {
+.flex-container1 {
   display: flex;
   flex-direction: row;
 }
@@ -33,17 +33,21 @@
   font-weight: 400;
 }
 
+.img-container {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  display: block;
+  margin: auto;
+  margin-top: 6px;
+  margin-bottom: 14px;
+}
+
 .pokeImg {
-  width: 80%;
+  width: 90%;
   -webkit-filter: grayscale(100%);
   -webkit-filter: contrast(0%);
   -webkit-filter: brightness(0%);
-}
-
-.normal {
-  background-color: #a6a686;
-}
-
-.poison {
-  background-color: #a040a0;
+  margin-top: 10px;
 }

@@ -114,6 +114,7 @@ function Card(props) {
   switch (props.pokeType1) {
     case "normal":
       cardBorderColour = typeColour.normal.border;
+      //cardBorderColour = typeColour.normal.badge;
       cardBackgroundColour = typeColour.normal.background;
       break;
     case "fighting":
@@ -150,6 +151,7 @@ function Card(props) {
       break;
     case "fire":
       cardBorderColour = typeColour.fire.border;
+      //cardBorderColour = typeColour.fire.badge;
       cardBackgroundColour = typeColour.fire.background;
       break;
     case "water":
@@ -158,6 +160,7 @@ function Card(props) {
       break;
     case "grass":
       cardBorderColour = typeColour.grass.border;
+      //cardBorderColour = typeColour.grass.badge;
       cardBackgroundColour = typeColour.grass.background;
       break;
     case "electric":
@@ -196,11 +199,13 @@ function Card(props) {
         borderColor: cardBorderColour,
       }}
     >
-      <div className="flex-container">
+      <div className="flex-container1">
         <div id="flex-item1">{capitalize(props.pokeName)}</div>
         <div id="flex-item2">#{paddedPokeId}</div>
       </div>
-      <img className="pokeImg" src={`/poke_pics/${paddedPokeId}.webp`} />
+      <div className="img-container">
+        <img className="pokeImg" src={`/poke_pics/${paddedPokeId}.webp`} />
+      </div>
       {/** <span className="badge poison">{capitalize(props.pokeType1)}</span>
       <span className="badge" style={{ backgroundColor: "#EE99AC" }}>
         {capitalize(props.pokeType1)}
