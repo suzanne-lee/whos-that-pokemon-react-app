@@ -92,7 +92,10 @@ function PokeTypeBadge(props) {
   // let tmp1 = typeColour.fairy.badge;
 
   return (
-    <span className="badge" style={{ backgroundColor: badgeColour }}>
+    <span
+      className="badge"
+      style={{ backgroundColor: badgeColour, marginLeft: "5px" }}
+    >
       {props.pokeType == null ? "" : capitalize(props.pokeType)}
     </span>
   );

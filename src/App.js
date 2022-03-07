@@ -67,7 +67,6 @@ function App(props) {
   useEffect(() => {
     if (userInput.toLowerCase() === currentPokemon[0]) {
       // alert("HELLO");
-      setisHidden(false);
       revealPokemon();
       setCaughtCount(caughtCount + 1);
       // getNextPokemon();
@@ -79,12 +78,14 @@ function App(props) {
   }, [userInput]);
 
   function revealPokemon() {
+    setisHidden(false);
     document.querySelector(".pokeImg").style.webkitFilter = "grayscale(0%)";
     document.querySelector(".pokeImg").style.webkitFilter = "contrast(100%)";
     document.querySelector(".pokeImg").style.webkitFilter = "brightness(100%)";
   }
 
   function hidePokemon() {
+    setisHidden(true);
     document.querySelector(".pokeImg").style.webkitFilter = "grayscale(100%)";
     document.querySelector(".pokeImg").style.webkitFilter = "contrast(0%)";
     document.querySelector(".pokeImg").style.webkitFilter = "brightness(0%)";
@@ -102,9 +103,9 @@ function App(props) {
           Pokemon will appear.
         </p>
       </div>
-      <div>
+      <p id="counter">
         {caughtCount} Caught / {seenCount} Seen
-      </div>
+      </p>
       <PokemonCard pokemon={currentPokemon} />
       <form>
         <div className="form-group">
@@ -118,13 +119,15 @@ function App(props) {
             value={userInput}
           />
         </div>
-        <button
-          type="submit"
-          className="btn btn-primary"
-          onClick={getNextPokemon}
-        >
-          Next
-        </button>
+        {!isHidden ? (
+          <button
+            type="submit"
+            className="btn btn-primary"
+            onClick={getNextPokemon}
+          >
+            Next
+          </button>
+        ) : undefined}
       </form>
 
       <button type="button" className="btn btn-link" onClick={revealPokemon}>
