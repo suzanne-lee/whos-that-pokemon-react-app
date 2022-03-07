@@ -21,6 +21,14 @@
   margin: auto;
 }
 
+#counter {
+  font-size: 18px;
+  width: 300px;
+  background-color: #fff;
+  margin: auto;
+  border-radius: 20px;
+}
+
 form {
   width: 300px;
   display: block;
