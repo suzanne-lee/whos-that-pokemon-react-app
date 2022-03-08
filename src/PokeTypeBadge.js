@@ -28,6 +28,7 @@ function PokeTypeBadge(props) {
     dragon: "#7038F8",
     dark: "#705848",
     fairy: "#EE99AC",
+    default: "#fff",
   };
 
   let badgeColour = "";
@@ -87,6 +88,8 @@ function PokeTypeBadge(props) {
     case "fairy":
       badgeColour = typeColour.fairy;
       break;
+    default:
+      badgeColour = typeColour.default;
   }
 
   // let tmp1 = typeColour.fairy.badge;
