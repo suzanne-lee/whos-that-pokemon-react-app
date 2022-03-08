@@ -106,6 +106,11 @@ function Card(props) {
       border: "#C85C74",
       background: "#FCEAFF",
     },
+    default: {
+      badge: "#fff",
+      border: "#fff",
+      background: "#fff",
+    },
   };
 
   let cardBorderColour = "";
@@ -188,8 +193,8 @@ function Card(props) {
       cardBackgroundColour = typeColour.fairy.background;
       break;
     default:
-      cardBorderColour = typeColour.normal.border;
-      cardBackgroundColour = typeColour.normal.background;
+      cardBorderColour = typeColour.default.border;
+      cardBackgroundColour = typeColour.default.background;
   }
 
   console.log("BORDER COLOUR: " + cardBorderColour);
