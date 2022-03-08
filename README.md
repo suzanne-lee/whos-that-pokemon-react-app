@@ -33,8 +33,8 @@ Inspired by the segment in the original TV series, Who's That Pokemon? allows us
   - Add optional music/sound effects to enhance game play
 - Natural language processing
   - Guess Pokemon by saying the name out loud
-- Description mode
-  - Rather than using images, users can guess the Pokemon with physical and non-physical descriptors of Pokemon
+- Text mode
+  - Users can guess the Pokemon with physical and non-physical descriptors/facts, rather than images
 - Leaderboard
   - Allow users to save their stats to a public leaderboard
 
