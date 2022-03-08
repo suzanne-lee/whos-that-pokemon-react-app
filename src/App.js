@@ -1,11 +1,10 @@
 import "./App.css";
 import "./images/pokemon-green-background.png";
 import logo from "./images/Whos-that-Pokemon.png";
-import Card from "./Card";
 import PokemonCard from "./PokemonCard";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import React, { Component } from "react";
+import React from "react";
 
 function App(props) {
   const [pokeList, setPokeList] = useState(props.pokeList);
