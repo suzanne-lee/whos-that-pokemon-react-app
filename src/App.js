@@ -1,7 +1,7 @@
 import "./App.css";
 import "./images/pokemon-green-background.png";
-import logo from "./images/Whos-that-Pokemon.png";
 import PokemonCard from "./PokemonCard";
+import Header from "./Header";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import React from "react";
@@ -77,16 +77,7 @@ function App(props) {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img className="titleImg" src={logo} alt="Who's That Pokemon?" />
-      </header>
-      <h3>How to Play:</h3>
-      <div className="instructionTextContainer">
-        <p>
-          Enter your guess below. When you get the answer right, the next
-          Pokemon will appear.
-        </p>
-      </div>
+      <Header />
       <p id="counter">
         {caughtCount} Caught / {seenCount} Seen
       </p>

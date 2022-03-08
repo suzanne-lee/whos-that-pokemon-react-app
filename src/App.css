@@ -10,17 +10,6 @@
   height: 100%;
 }
 
-.titleImg {
-  width: 500px;
-  padding-top: 50px;
-  padding-bottom: 25px;
-}
-
-.instructionTextContainer {
-  width: 60%;
-  margin: auto;
-}
-
 #counter {
   font-size: 18px;
   width: 300px;
