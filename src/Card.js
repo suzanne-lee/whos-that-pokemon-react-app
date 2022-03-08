@@ -187,6 +187,9 @@ function Card(props) {
       cardBorderColour = typeColour.fairy.border;
       cardBackgroundColour = typeColour.fairy.background;
       break;
+    default:
+      cardBorderColour = typeColour.normal.border;
+      cardBackgroundColour = typeColour.normal.background;
   }
 
   console.log("BORDER COLOUR: " + cardBorderColour);
