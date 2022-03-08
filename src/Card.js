@@ -3,8 +3,6 @@ import "./Card.css";
 import PokeTypeBadge from "./PokeTypeBadge";
 
 function Card(props) {
-  //console.log(props.pokeId);
-  //console.log(`${props.pokeId}`.padStart(3, 0));
   let paddedPokeId = `${props.pokeId}`.padStart(3, 0);
 
   function capitalize(string) {
@@ -119,7 +117,6 @@ function Card(props) {
   switch (props.pokeType1) {
     case "normal":
       cardBorderColour = typeColour.normal.border;
-      //cardBorderColour = typeColour.normal.badge;
       cardBackgroundColour = typeColour.normal.background;
       break;
     case "fighting":
@@ -156,7 +153,6 @@ function Card(props) {
       break;
     case "fire":
       cardBorderColour = typeColour.fire.border;
-      //cardBorderColour = typeColour.fire.badge;
       cardBackgroundColour = typeColour.fire.background;
       break;
     case "water":
@@ -165,7 +161,6 @@ function Card(props) {
       break;
     case "grass":
       cardBorderColour = typeColour.grass.border;
-      //cardBorderColour = typeColour.grass.badge;
       cardBackgroundColour = typeColour.grass.background;
       break;
     case "electric":
@@ -197,8 +192,6 @@ function Card(props) {
       cardBackgroundColour = typeColour.default.background;
   }
 
-  console.log("BORDER COLOUR: " + cardBorderColour);
-
   return (
     <div
       className="Card"
@@ -218,14 +211,6 @@ function Card(props) {
           alt=""
         />
       </div>
-      {/** <span className="badge poison">{capitalize(props.pokeType1)}</span>
-      <span className="badge" style={{ backgroundColor: "#EE99AC" }}>
-        {capitalize(props.pokeType1)}
-      </span>
-      <span className="badge bg-secondary">
-        {props.pokeType2 == null ? "" : capitalize(props.pokeType2)}
-      </span>*/}
-
       <PokeTypeBadge pokeType={props.pokeType1} />
       <PokeTypeBadge pokeType={props.pokeType2} />
     </div>

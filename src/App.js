@@ -8,27 +8,18 @@ import React from "react";
 
 function App(props) {
   const pokeList = props.pokeList;
-  // const [pokeList, setPokeList] = useState(props.pokeList);
   const [currentPokemon, setCurrentPokemon] = useState([]);
   const [userInput, setUserInput] = useState("");
   const [isHidden, setisHidden] = useState(true);
   const [seenCount, setSeenCount] = useState(1);
   const [caughtCount, setCaughtCount] = useState(0);
 
-  //console.log(pokeList[0]);
-
-  // let currPokeId = pokeList.shift();
   const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokeList[0]}/`;
-  // pokeName = data.name
 
   function onResponse(response) {
     let pokeName = response.data.name;
     let pokeId = pokeList[0];
-    // console.log(response);
-
     let typeArr = response.data.types;
-
-    // console.log(typeArr);
 
     let pokeType1 = typeArr[0].type.name;
     let pokeType2 = null;
@@ -43,14 +34,12 @@ function App(props) {
     setCurrentPokemon([pokeName, pokeId, pokeType1, pokeType2]);
   }
 
-  //axios.get(apiUrl).then(onResponse);
   useEffect(() => {
     axios.get(apiUrl).then(onResponse);
   }, [apiUrl]);
 
   function handleInputChange(event) {
     event.preventDefault();
-    // alert("A name was submitted: " + this.state.value);
     setUserInput(event.target.value);
     console.log(event.target.value);
   }
@@ -67,14 +56,8 @@ function App(props) {
 
   useEffect(() => {
     if (userInput.toLowerCase() === currentPokemon[0]) {
-      // alert("HELLO");
       revealPokemon();
       setCaughtCount(caughtCount + 1);
-      // getNextPokemon();
-      /*setTimeout(() => {
-        getNextPokemon();
-      }, 2000);*/
-      // document.getElementById("input").reset();
     }
   }, [userInput]);
 

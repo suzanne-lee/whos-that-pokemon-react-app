@@ -92,8 +92,6 @@ function PokeTypeBadge(props) {
       badgeColour = typeColour.default;
   }
 
-  // let tmp1 = typeColour.fairy.badge;
-
   return (
     <span
       className="badge"
