@@ -1,5 +1,7 @@
 # Who's That Pokemon? 
 
+View the hosted project [here! ](https://youthful-bassi-d20dc8.netlify.app/)
+
 ## Description
 
 Who's That Pokemon? is a landing page game built using HTML, CSS, JavaScript, ReactJS, and Bootstrap. A Pokemon 
