@@ -4,7 +4,7 @@ View the hosted project [here! ](https://youthful-bassi-d20dc8.netlify.app/)
 
 ## Description
 
-Inspired by the segment in the original TV series, Who's That Pokemon? allows users to try and identify hidden Pokemon. Who's That Pokemon? is a landing page game built using HTML, CSS, JavaScript, ReactJS, and Bootstrap.
+Inspired by the segment in the original TV series, Who's That Pokemon? is a single-page game that allows users to try and identify hidden Pokemon. Who's That Pokemon? is a landing page game built using HTML, CSS, JavaScript, ReactJS, and Bootstrap.
 
 ### Limitations 
 - Data
