@@ -2,7 +2,7 @@ import React from "react";
 import "./Header.css";
 import logo from "./images/Whos-that-Pokemon.png";
 
-function Header(props) {
+function Header() {
   return (
     <React.Fragment>
       <header className="App-header">
