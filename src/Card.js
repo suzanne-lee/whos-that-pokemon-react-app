@@ -204,7 +204,11 @@ function Card(props) {
         <div id="flex-item2">#{paddedPokeId}</div>
       </div>
       <div className="img-container">
-        <img className="pokeImg" src={`/poke_pics/${paddedPokeId}.webp`} />
+        <img
+          className="pokeImg"
+          src={`/poke_pics/${paddedPokeId}.webp`}
+          alt=""
+        />
       </div>
       {/** <span className="badge poison">{capitalize(props.pokeType1)}</span>
       <span className="badge" style={{ backgroundColor: "#EE99AC" }}>

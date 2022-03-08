@@ -7,7 +7,8 @@ import { useEffect, useState } from "react";
 import React from "react";
 
 function App(props) {
-  const [pokeList, setPokeList] = useState(props.pokeList);
+  const pokeList = props.pokeList;
+  // const [pokeList, setPokeList] = useState(props.pokeList);
   const [currentPokemon, setCurrentPokemon] = useState([]);
   const [userInput, setUserInput] = useState("");
   const [isHidden, setisHidden] = useState(true);

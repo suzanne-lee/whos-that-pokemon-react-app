@@ -3,6 +3,7 @@ import Card from "./Card";
 import "./PokemonCard.css";
 
 function PokemonCard(props) {
+  /*
   const typeColour = {
     normal: {
       badge: "#A6A686",
@@ -94,8 +95,9 @@ function PokemonCard(props) {
       outline: "#C85C74",
       background: "#FCEAFF",
     },
-  };
+  };*/
 
+  /*
   function test() {
     let pokeName = props.pokemon[0];
     let pokeId = props.pokemon[1];
@@ -103,7 +105,7 @@ function PokemonCard(props) {
     //console.log(pokeId);
   }
 
-  test();
+  test();*/
 
   return (
     <div className="PokemonCard">
