@@ -79,6 +79,7 @@ function App(props) {
   return (
     <div className="App">
       <Header />
+      <h2>Pokédex Count:</h2>
       <p id="counter">
         {caughtCount} Caught / {seenCount} Seen
       </p>
@@ -90,7 +91,7 @@ function App(props) {
             type="text"
             className="form-control"
             id="input"
-            placeholder="Who's That Pokemon?"
+            placeholder="Who's That Pokémon?"
             onChange={handleInputChange}
             value={userInput}
           />

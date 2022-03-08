@@ -10,8 +10,12 @@
   height: 100%;
 }
 
+h2 {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+}
+
 #counter {
-  font-size: 18px;
   width: 300px;
   background-color: #fff;
   margin: auto;

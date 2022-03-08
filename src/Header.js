@@ -4,18 +4,18 @@ import logo from "./images/Whos-that-Pokemon.png";
 
 function Header() {
   return (
-    <React.Fragment>
-      <header className="App-header">
-        <img className="titleImg" src={logo} alt="Who's That Pokemon?" />
-      </header>
-      <h3>How to Play:</h3>
-      <div className="instructionTextContainer">
-        <p>
-          Enter your guess below. When you get the answer right, the next
-          Pokemon will appear.
+    <header className="App-header">
+      <img className="titleImg" src={logo} alt="Who's That Pokemon?" />
+      <div id="instructionContainer">
+        <h1>HOW TO PLAY</h1>
+        <p id="instructionText">
+          Enter your guess below. When you guess the Pokémon correctly, the{" "}
+          <em>Next</em> button will appear. If you don't know the answer, click
+          the <em>I don't know!</em> button, followed by the <em>Next</em>{" "}
+          button.
         </p>
       </div>
-    </React.Fragment>
+    </header>
   );
 }
 
