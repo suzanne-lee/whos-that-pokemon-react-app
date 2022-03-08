@@ -49,6 +49,7 @@ function App(props) {
   }, [apiUrl]);
 
   function handleInputChange(event) {
+    event.preventDefault();
     // alert("A name was submitted: " + this.state.value);
     setUserInput(event.target.value);
     console.log(event.target.value);
@@ -107,7 +108,7 @@ function App(props) {
         {caughtCount} Caught / {seenCount} Seen
       </p>
       <PokemonCard pokemon={currentPokemon} />
-      <form>
+      <form onSubmit={(e) => e.preventDefault()}>
         <div className="form-group">
           <label htmlFor="input">Enter your guess below:</label>
           <input
