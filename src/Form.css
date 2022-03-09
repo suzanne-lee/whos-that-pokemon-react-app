@@ -1,0 +1,19 @@
+form {
+  width: 300px;
+  display: block;
+  margin: auto;
+}
+
+.form-control {
+  border-radius: 1.5rem !important;
+  background-color: transparent !important;
+  border: 2px solid #396bba !important;
+}
+
+button {
+  border-radius: 1.5rem !important;
+}
+
+.nextPokemonButton {
+  font-family: "Roboto", sans-serif !important;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
+import "./Form.css";
 
 function Form(props) {
   function handleInputChange(event) {
