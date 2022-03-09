@@ -3,7 +3,7 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <React.Fragment>
+    <>
       <hr />
       <footer>
         Made by{" "}
@@ -33,7 +33,7 @@ function Footer() {
           Bulbapedia
         </a>
       </footer>
-    </React.Fragment>
+    </>
   );
 }
 

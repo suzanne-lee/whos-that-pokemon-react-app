@@ -6,19 +6,21 @@ import { pokeTypeMap } from "./PokemonType";
 function Card(props) {
   let paddedPokeId = `${props.pokemon.id}`.padStart(3, 0);
 
-  const pokeImage = props.isHidden ? (
-    <img
-      className="pokeImg hidden"
-      src={`/poke_pics/${paddedPokeId}.webp`}
-      alt=""
-    />
-  ) : (
-    <img
-      className="pokeImg viisble"
-      src={`/poke_pics/${paddedPokeId}.webp`}
-      alt=""
-    />
-  );
+  function capitalize(string) {
+    if (string !== undefined) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    } else {
+      return string;
+    }
+  }
+
+  let pokeType1 = props.pokemon.type1;
+  let pokeType2 = props.pokemon.type2;
+
+  if (pokeType1 === undefined) {
+    pokeType1 = "default";
+    pokeType2 = "default";
+  }
 
   const badge1 = !props.isHidden ? (
     <Badge pokeType={props.pokemon.type1} />
@@ -36,22 +38,6 @@ function Card(props) {
     <div id="flex-item2">#{paddedPokeId}</div>
   ) : null;
 
-  function capitalize(string) {
-    if (string !== undefined) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    } else {
-      return string;
-    }
-  }
-
-  let pokeType1 = props.pokemon.type1;
-  let pokeType2 = props.pokemon.type2;
-
-  if (pokeType1 === undefined) {
-    pokeType1 = "default";
-    pokeType2 = "default";
-  }
-
   return (
     <div
       className="Card"
@@ -68,15 +54,16 @@ function Card(props) {
       }
     >
       <div className="flex-container1">
-        {/*
-        <div id="flex-item1">{capitalize(props.pokemon.name)}</div>
-        <div id="flex-item2">#{paddedPokeId}</div>*/}
         {pokeName}
         {pokeId}
       </div>
-      <div className="img-container">{pokeImage}</div>
-      {/*<Badge pokeType={props.pokemon.type1} />
-      <Badge pokeType={props.pokemon.type2} />*/}
+      <div className="img-container">
+        <img
+          className={`pokeImg ${props.isHidden ? "hidden" : "visible"}`}
+          src={`/poke_pics/${paddedPokeId}.webp`}
+          alt=""
+        />
+      </div>
       {badge1}
       {badge2}
     </div>
