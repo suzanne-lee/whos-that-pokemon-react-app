@@ -4,7 +4,37 @@ import Badge from "./Badge";
 import { pokeTypeMap } from "./PokemonType";
 
 function Card(props) {
-  let paddedPokeId = `${props.pokeId}`.padStart(3, 0);
+  let paddedPokeId = `${props.pokemon.id}`.padStart(3, 0);
+
+  const pokeImage = props.isHidden ? (
+    <img
+      className="pokeImg hidden"
+      src={`/poke_pics/${paddedPokeId}.webp`}
+      alt=""
+    />
+  ) : (
+    <img
+      className="pokeImg viisble"
+      src={`/poke_pics/${paddedPokeId}.webp`}
+      alt=""
+    />
+  );
+
+  const badge1 = !props.isHidden ? (
+    <Badge pokeType={props.pokemon.type1} />
+  ) : null;
+
+  const badge2 = !props.isHidden ? (
+    <Badge pokeType={props.pokemon.type2} />
+  ) : null;
+
+  const pokeName = !props.isHidden ? (
+    <div id="flex-item1">{capitalize(props.pokemon.name)}</div>
+  ) : null;
+
+  const pokeId = !props.isHidden ? (
+    <div id="flex-item2">#{paddedPokeId}</div>
+  ) : null;
 
   function capitalize(string) {
     if (string !== undefined) {
@@ -14,8 +44,8 @@ function Card(props) {
     }
   }
 
-  let pokeType1 = props.pokeType1;
-  let pokeType2 = props.pokeType2;
+  let pokeType1 = props.pokemon.type1;
+  let pokeType2 = props.pokemon.type2;
 
   if (pokeType1 === undefined) {
     pokeType1 = "default";
@@ -25,24 +55,30 @@ function Card(props) {
   return (
     <div
       className="Card"
-      style={{
-        backgroundColor: pokeTypeMap.get(pokeType1).cardBackground,
-        borderColor: pokeTypeMap.get(pokeType1).cardBorder,
-      }}
+      style={
+        props.isHidden
+          ? {
+              backgroundColor: pokeTypeMap.get("default").cardBackground,
+              borderColor: pokeTypeMap.get("default").cardBorder,
+            }
+          : {
+              backgroundColor: pokeTypeMap.get(pokeType1).cardBackground,
+              borderColor: pokeTypeMap.get(pokeType1).cardBorder,
+            }
+      }
     >
       <div className="flex-container1">
-        <div id="flex-item1">{capitalize(props.pokeName)}</div>
-        <div id="flex-item2">#{paddedPokeId}</div>
+        {/*
+        <div id="flex-item1">{capitalize(props.pokemon.name)}</div>
+        <div id="flex-item2">#{paddedPokeId}</div>*/}
+        {pokeName}
+        {pokeId}
       </div>
-      <div className="img-container">
-        <img
-          className="pokeImg"
-          src={`/poke_pics/${paddedPokeId}.webp`}
-          alt=""
-        />
-      </div>
-      <Badge pokeType={props.pokeType1} />
-      <Badge pokeType={props.pokeType2} />
+      <div className="img-container">{pokeImage}</div>
+      {/*<Badge pokeType={props.pokemon.type1} />
+      <Badge pokeType={props.pokemon.type2} />*/}
+      {badge1}
+      {badge2}
     </div>
   );
 }
