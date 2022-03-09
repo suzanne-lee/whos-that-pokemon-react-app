@@ -24,7 +24,7 @@ function Form(props) {
 
   return (
     <>
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={(e) => e.preventDefault()} autoComplete="off">
         <div className="form-group">
           <label htmlFor="input">Enter your guess below:</label>
           <input
