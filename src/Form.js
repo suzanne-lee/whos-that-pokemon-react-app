@@ -5,19 +5,13 @@ function Form(props) {
   function handleInputChange(event) {
     event.preventDefault();
     props.setUserInput(event.target.value);
-    // console.log(event.target.value);
   }
-
-  function test() {}
 
   useEffect(() => {
     if (
       props.userInput.toLowerCase() === props.pokemon.name &&
       props.isHidden
     ) {
-      console.log("userinput: " + props.userInput);
-      console.log("pokename: " + props.pokemon.name);
-      // revealPokemon();
       props.setIsHidden(false);
       props.setCaughtCount(props.caughtCount + 1);
     }
@@ -51,9 +45,11 @@ function Form(props) {
           </button>
         ) : undefined}
       </form>
-      <button type="button" className="btn btn-link" onClick={revealPokemon}>
-        I don't know!
-      </button>
+      {props.isHidden ? (
+        <button type="button" className="btn btn-link" onClick={revealPokemon}>
+          I don't know!
+        </button>
+      ) : undefined}
     </>
   );
 }

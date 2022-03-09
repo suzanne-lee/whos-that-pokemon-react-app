@@ -10,8 +10,6 @@ import React from "react";
 
 function App(props) {
   const pokeList = props.pokeList;
-  // setCurrentPokemon([pokeName, pokeId, pokeType1, pokeType2]);
-  // const [currentPokemon, setCurrentPokemon] = useState([]);
   const [currentPokemon, setCurrentPokemon] = useState({
     name: "",
     id: "",
@@ -73,45 +71,14 @@ function App(props) {
     axios.get(apiUrl).then(onResponse);
   }, [apiUrl]);
 
-  function handleInputChange(event) {
-    event.preventDefault();
-    setUserInput(event.target.value);
-    console.log(event.target.value);
-  }
-
   function getNextPokemon(e) {
     e.preventDefault();
     setIsHidden(true);
-    // hidePokemon();
     setUserInput("");
     setSeenCount(seenCount + 1);
     let nextPokemonId = pokeList.shift();
     const apiUrl = `https://pokeapi.co/api/v2/pokemon/${nextPokemonId}/`;
     axios.get(apiUrl).then(onResponse);
-  }
-
-  {
-    /*
-  useEffect(() => {
-    if (userInput.toLowerCase() === currentPokemon.name) {
-      revealPokemon();
-      setCaughtCount(caughtCount + 1);
-    }
-  }, [userInput]);*/
-  }
-
-  function revealPokemon() {
-    //setIsHidden(false);
-    //document.querySelector(".pokeImg").style.webkitFilter = "grayscale(0%)";
-    //document.querySelector(".pokeImg").style.webkitFilter = "contrast(100%)";
-    //document.querySelector(".pokeImg").style.webkitFilter = "brightness(100%)";
-  }
-
-  function hidePokemon() {
-    //setIsHidden(true);
-    //document.querySelector(".pokeImg").style.webkitFilter = "grayscale(100%)";
-    //document.querySelector(".pokeImg").style.webkitFilter = "contrast(0%)";
-    //document.querySelector(".pokeImg").style.webkitFilter = "brightness(0%)";
   }
 
   return (
@@ -123,34 +90,6 @@ function App(props) {
       </p>
       {pokemonCard}
       {form}
-
-      {/*
-      <form onSubmit={(e) => e.preventDefault()}>
-        <div className="form-group">
-          <label htmlFor="input">Enter your guess below:</label>
-          <input
-            type="text"
-            className="form-control"
-            id="input"
-            placeholder="Who's That Pokémon?"
-            onChange={handleInputChange}
-            value={userInput}
-          />
-        </div>
-        {!isHidden ? (
-          <button
-            type="submit"
-            className="btn btn-primary nextPokemonButton"
-            onClick={getNextPokemon}
-          >
-            Next
-          </button>
-        ) : undefined}
-      </form>
-        <button type="button" className="btn btn-link" onClick={revealPokemon}>
-        I don't know!
-      </button>*/}
-
       <Footer />
     </div>
   );
