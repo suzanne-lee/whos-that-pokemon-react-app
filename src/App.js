@@ -99,7 +99,7 @@ function App(props) {
         {!isHidden ? (
           <button
             type="submit"
-            className="btn btn-primary"
+            className="btn btn-primary nextPokemonButton"
             onClick={getNextPokemon}
           >
             Next

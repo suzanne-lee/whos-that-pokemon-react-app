@@ -37,3 +37,7 @@ form {
 button {
   border-radius: 1.5rem !important;
 }
+
+.nextPokemonButton {
+  font-family: "Roboto", sans-serif !important;
+}
