@@ -12,7 +12,8 @@ function Header() {
           Enter your guess below. When you guess the Pokémon correctly, the{" "}
           <em>Next</em> button will appear. If you don't know the answer, click
           the <em>I don't know!</em> button, followed by the <em>Next</em>{" "}
-          button.
+          button. There are 151 first generation Pokémon. Can you catch them
+          all?
         </p>
       </div>
     </header>
