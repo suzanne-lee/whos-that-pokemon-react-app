@@ -73,12 +73,12 @@ function App(props) {
 
   function getNextPokemon(e) {
     e.preventDefault();
-    setIsHidden(true);
-    setUserInput("");
-    setSeenCount(seenCount + 1);
     let nextPokemonId = pokeList.shift();
     const apiUrl = `https://pokeapi.co/api/v2/pokemon/${nextPokemonId}/`;
     axios.get(apiUrl).then(onResponse);
+    setIsHidden(true);
+    setUserInput("");
+    setSeenCount(seenCount + 1);
   }
 
   return (
