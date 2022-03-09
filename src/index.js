@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const pokeList = [];
 
-for (let i = 1; i <= 151; i++) {
+for (let i = 1; i <= 3; i++) {
   pokeList.push(i);
 }
 
