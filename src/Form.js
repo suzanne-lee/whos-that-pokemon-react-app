@@ -8,11 +8,29 @@ function Form(props) {
     props.setUserInput(event.target.value);
   }
 
-  useEffect(() => {
+  function isValidInput() {
+    if (props.userInput.toLowerCase() === props.pokemon.name) {
+      return true;
+    }
+
+    if (props.pokemon.name === "mr-mime") {
+      return ["mr mime", "mr.mime", "mr. mime"].includes(
+        props.userInput.toLowerCase()
+      );
+    }
+
     if (
-      props.userInput.toLowerCase() === props.pokemon.name &&
-      props.isHidden
+      props.pokemon.name === "nidoran-f" ||
+      props.pokemon.name === "nidoran-m"
     ) {
+      return ["nidoran"].includes(props.userInput.toLowerCase());
+    }
+
+    return false;
+  }
+
+  useEffect(() => {
+    if (isValidInput() && props.isHidden) {
       props.setIsHidden(false);
       props.setCaughtCount(props.caughtCount + 1);
     }
