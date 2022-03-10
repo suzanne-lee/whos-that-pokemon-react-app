@@ -53,7 +53,6 @@ function App(props) {
 
   function onResponse(response) {
     setSeenCount(seenCount + 1);
-    setIsHidden(true);
     let pokeName = response.data.name;
     let pokeId = pokeList[0];
     let typeArr = response.data.types;
@@ -83,7 +82,7 @@ function App(props) {
       let nextPokemonId = pokeList.shift();
       const apiUrl = `https://pokeapi.co/api/v2/pokemon/${nextPokemonId}/`;
       axios.get(apiUrl).then(onResponse);
-
+      setIsHidden(true);
       setUserInput("");
     } else {
       setIsGameFinished(true);
