@@ -4,8 +4,6 @@ import Badge from "./Badge";
 import { pokeTypeMap } from "./PokemonType";
 
 function Card(props) {
-  let paddedPokeId = `${props.pokemon.id}`.padStart(3, 0);
-
   function capitalize(string) {
     if (string !== undefined) {
       return string.charAt(0).toUpperCase() + string.slice(1);
@@ -35,7 +33,7 @@ function Card(props) {
   ) : null;
 
   const pokeId = !props.isHidden ? (
-    <div id="flex-item2">#{paddedPokeId}</div>
+    <div id="flex-item2">#{props.pokemon.paddedPokeId}</div>
   ) : null;
 
   return (
@@ -60,7 +58,7 @@ function Card(props) {
       <div className="img-container">
         <img
           className={`pokeImg ${props.isHidden ? "hidden" : "visible"}`}
-          src={`/poke_pics/${paddedPokeId}.webp`}
+          src={props.pokemon.imageObjectURL}
           alt=""
         />
       </div>

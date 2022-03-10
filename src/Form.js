@@ -1,14 +1,17 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./Form.css";
 
 function Form(props) {
+  const [isLoading, setIsLoading] = useState(false);
   function handleInputChange(event) {
+    console.log("Form handleInputChange");
     event.preventDefault();
     props.setUserInput(event.target.value);
   }
 
   function isValidInput() {
+    console.log("Form isValidInput");
     if (props.userInput.toLowerCase() === props.pokemon.name) {
       return true;
     }
@@ -30,13 +33,19 @@ function Form(props) {
   }
 
   useEffect(() => {
+    console.log("Form useEffect");
     if (isValidInput() && props.isHidden) {
       props.setIsHidden(false);
       props.setCaughtCount(props.caughtCount + 1);
     }
   }, [props.userInput]);
 
+  useEffect(() => {
+    setIsLoading(false);
+  }, [props.pokemon.id]);
+
   function revealPokemon() {
+    console.log("Form revealPokemon");
     props.setIsHidden(false);
   }
 
@@ -58,7 +67,14 @@ function Form(props) {
           <button
             type="submit"
             className="btn btn-primary nextPokemonButton"
-            onClick={props.getNextPokemon}
+            onClick={(e) => {
+              e.preventDefault();
+              if (isLoading) {
+                return;
+              }
+              setIsLoading(true);
+              props.getNextPokemon();
+            }}
           >
             Next
           </button>

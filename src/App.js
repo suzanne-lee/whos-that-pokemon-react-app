@@ -10,12 +10,15 @@ import { useEffect, useState } from "react";
 import React from "react";
 
 function App(props) {
-  const pokeList = props.pokeList;
+  //const pokeList = props.pokeList;
+  const [pokeList, setPokeList] = useState(props.pokeList);
   const [currentPokemon, setCurrentPokemon] = useState({
     name: "",
     id: "",
+    paddedPokeId: "",
     type1: "",
     type2: "",
+    imageObjectURL: "",
   });
   const [userInput, setUserInput] = useState("");
   const [isHidden, setIsHidden] = useState(true);
@@ -23,15 +26,9 @@ function App(props) {
   const [caughtCount, setCaughtCount] = useState(0);
   const [isGameFinished, setIsGameFinished] = useState(false);
 
-  const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokeList[0]}/`;
-
   const pokemonCard =
     currentPokemon.name != "" ? (
-      <Card
-        pokemon={currentPokemon}
-        isHidden={isHidden}
-        setIsHidden={setIsHidden}
-      />
+      <Card pokemon={currentPokemon} isHidden={isHidden} />
     ) : null;
 
   const form =
@@ -52,9 +49,11 @@ function App(props) {
     ) : null;
 
   function onResponse(response) {
+    console.log("App onResponse 1");
     setSeenCount(seenCount + 1);
     let pokeName = response.data.name;
-    let pokeId = pokeList[0];
+    //let pokeId = pokeList[0];
+    let pokeId = response.data.id;
     let typeArr = response.data.types;
     let pokeType1 = typeArr[0].type.name;
     let pokeType2 = null;
@@ -63,43 +62,56 @@ function App(props) {
       pokeType2 = typeArr[1].type.name;
     }
 
-    setCurrentPokemon({
-      name: pokeName,
-      id: pokeId,
-      type1: pokeType1,
-      type2: pokeType2,
-    });
+    console.log("App onResponse 2");
+
+    const paddedPokeId = `${pokeId}`.padStart(3, 0);
+    const imageUrl = `/poke_pics/${paddedPokeId}.webp`;
+
+    fetch(imageUrl)
+      //                         vvvv
+      .then((response) => response.blob())
+      .then((imageBlob) => {
+        // Then create a local URL for that image and print it
+        const imageObjectURL = URL.createObjectURL(imageBlob);
+        console.log(imageObjectURL);
+
+        setCurrentPokemon({
+          name: pokeName,
+          id: pokeId,
+          paddedPokeId: paddedPokeId,
+          type1: pokeType1,
+          type2: pokeType2,
+          imageObjectURL,
+        });
+
+        setIsHidden(true);
+      });
+    // setIsHidden(true);
   }
 
+  // const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokeList[0]}/`;
   useEffect(() => {
+    const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokeList[0]}/`;
+    console.log("App useEffect");
+    setPokeList(pokeList.slice(1));
     axios.get(apiUrl).then(onResponse);
-  }, [apiUrl]);
+  }, []);
 
-  function getNextPokemon(e) {
-    e.preventDefault();
+  function getNextPokemon() {
+    console.log("App getNextPokemon");
+    //e.preventDefault();
 
-    if (pokeList.length > 1) {
-      let nextPokemonId = pokeList.shift();
+    if (pokeList.length > 0) {
+      let nextPokemonId = pokeList[0];
+      setPokeList(pokeList.slice(1));
       const apiUrl = `https://pokeapi.co/api/v2/pokemon/${nextPokemonId}/`;
+      console.log("getNextPokemon");
       axios.get(apiUrl).then(onResponse);
-      setIsHidden(true);
       setUserInput("");
     } else {
       setIsGameFinished(true);
     }
   }
-
-  /*
-  if (pokeList.length === 0) {
-    // setIsGameFinished(true);
-    useEffect(() => setIsGameFinished(true));
-  }*/
-
-  useEffect(() => {
-    if (pokeList.length === 0) {
-      setIsGameFinished(true);
-    }
-  });
 
   return (
     <div className="App">
