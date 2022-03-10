@@ -61,24 +61,24 @@ function App(props) {
 
     const paddedPokeId = `${pokeId}`.padStart(3, 0);
     const imageUrl = `/poke_pics/${paddedPokeId}.webp`;
+    const config = { responseType: "blob" };
 
-    fetch(imageUrl)
-      .then((response) => response.blob())
-      .then((imageBlob) => {
-        const imageObjectURL = URL.createObjectURL(imageBlob);
+    axios.get(imageUrl, config).then((response) => {
+      const imageBlob = response.data;
+      const imageObjectURL = URL.createObjectURL(imageBlob);
 
-        setCurrentPokemon({
-          name: pokeName,
-          id: pokeId,
-          paddedPokeId: paddedPokeId,
-          type1: pokeType1,
-          type2: pokeType2,
-          imageObjectURL,
-        });
-
-        setSeenCount(seenCount + 1);
-        setIsHidden(true);
+      setCurrentPokemon({
+        name: pokeName,
+        id: pokeId,
+        paddedPokeId: paddedPokeId,
+        type1: pokeType1,
+        type2: pokeType2,
+        imageObjectURL,
       });
+
+      setSeenCount(seenCount + 1);
+      setIsHidden(true);
+    });
   }
 
   useEffect(() => {
