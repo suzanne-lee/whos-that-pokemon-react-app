@@ -48,7 +48,6 @@ function App(props) {
     ) : null;
 
   function onResponse(response) {
-    //  setSeenCount(seenCount + 1);
     let pokeName = response.data.name;
     let pokeId = response.data.id;
     let typeArr = response.data.types;
