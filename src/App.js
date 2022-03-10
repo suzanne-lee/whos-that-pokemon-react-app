@@ -26,12 +26,12 @@ function App(props) {
   const [isGameFinished, setIsGameFinished] = useState(false);
 
   const pokemonCard =
-    currentPokemon.name != "" ? (
+    currentPokemon.name !== "" ? (
       <Card pokemon={currentPokemon} isHidden={isHidden} />
     ) : null;
 
   const form =
-    currentPokemon.name != "" ? (
+    currentPokemon.name !== "" ? (
       <Form
         isHidden={isHidden}
         setIsHidden={setIsHidden}
@@ -84,6 +84,7 @@ function App(props) {
     const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokeList[0]}/`;
     setPokeList(pokeList.slice(1));
     axios.get(apiUrl).then(onResponse);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function getNextPokemon() {

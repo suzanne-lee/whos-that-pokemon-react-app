@@ -35,10 +35,12 @@ function Form(props) {
       props.setIsHidden(false);
       props.setCaughtCount(props.caughtCount + 1);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.userInput]);
 
   useEffect(() => {
     setIsLoading(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.pokemon.id]);
 
   function revealPokemon() {
