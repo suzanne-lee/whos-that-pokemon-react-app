@@ -1,16 +1,15 @@
+import React from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Header from "./Header";
+import Card from "./Card";
+import Form from "./Form";
+import Footer from "./Footer";
+import EndOfGameMessage from "./EndOfGameMessage";
 import "./App.css";
 import "./images/pokemon-green-background.png";
-import Card from "./Card";
-import Header from "./Header";
-import Footer from "./Footer";
-import Form from "./Form";
-import EndOfGameMessage from "./EndOfGameMessage";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import React from "react";
 
 function App(props) {
-  //const pokeList = props.pokeList;
   const [pokeList, setPokeList] = useState(props.pokeList);
   const [currentPokemon, setCurrentPokemon] = useState({
     name: "",
@@ -52,7 +51,6 @@ function App(props) {
     console.log("App onResponse 1");
     setSeenCount(seenCount + 1);
     let pokeName = response.data.name;
-    //let pokeId = pokeList[0];
     let pokeId = response.data.id;
     let typeArr = response.data.types;
     let pokeType1 = typeArr[0].type.name;
@@ -68,7 +66,6 @@ function App(props) {
     const imageUrl = `/poke_pics/${paddedPokeId}.webp`;
 
     fetch(imageUrl)
-      //                         vvvv
       .then((response) => response.blob())
       .then((imageBlob) => {
         // Then create a local URL for that image and print it
@@ -86,10 +83,8 @@ function App(props) {
 
         setIsHidden(true);
       });
-    // setIsHidden(true);
   }
 
-  // const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokeList[0]}/`;
   useEffect(() => {
     const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokeList[0]}/`;
     console.log("App useEffect");
@@ -99,8 +94,6 @@ function App(props) {
 
   function getNextPokemon() {
     console.log("App getNextPokemon");
-    //e.preventDefault();
-
     if (pokeList.length > 0) {
       let nextPokemonId = pokeList[0];
       setPokeList(pokeList.slice(1));

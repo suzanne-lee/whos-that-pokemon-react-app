@@ -1,7 +1,7 @@
 import React from "react";
-import "./Card.css";
 import Badge from "./Badge";
 import { pokeTypeMap } from "./PokemonType";
+import "./Card.css";
 
 function Card(props) {
   function capitalize(string) {
