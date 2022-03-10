@@ -48,7 +48,6 @@ function App(props) {
     ) : null;
 
   function onResponse(response) {
-    console.log("App onResponse 1");
     setSeenCount(seenCount + 1);
     let pokeName = response.data.name;
     let pokeId = response.data.id;
@@ -60,17 +59,13 @@ function App(props) {
       pokeType2 = typeArr[1].type.name;
     }
 
-    console.log("App onResponse 2");
-
     const paddedPokeId = `${pokeId}`.padStart(3, 0);
     const imageUrl = `/poke_pics/${paddedPokeId}.webp`;
 
     fetch(imageUrl)
       .then((response) => response.blob())
       .then((imageBlob) => {
-        // Then create a local URL for that image and print it
         const imageObjectURL = URL.createObjectURL(imageBlob);
-        console.log(imageObjectURL);
 
         setCurrentPokemon({
           name: pokeName,
@@ -87,18 +82,15 @@ function App(props) {
 
   useEffect(() => {
     const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokeList[0]}/`;
-    console.log("App useEffect");
     setPokeList(pokeList.slice(1));
     axios.get(apiUrl).then(onResponse);
   }, []);
 
   function getNextPokemon() {
-    console.log("App getNextPokemon");
     if (pokeList.length > 0) {
       let nextPokemonId = pokeList[0];
       setPokeList(pokeList.slice(1));
       const apiUrl = `https://pokeapi.co/api/v2/pokemon/${nextPokemonId}/`;
-      console.log("getNextPokemon");
       axios.get(apiUrl).then(onResponse);
       setUserInput("");
     } else {

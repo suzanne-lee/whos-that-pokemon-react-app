@@ -5,13 +5,11 @@ import "./Form.css";
 function Form(props) {
   const [isLoading, setIsLoading] = useState(false);
   function handleInputChange(event) {
-    console.log("Form handleInputChange");
     event.preventDefault();
     props.setUserInput(event.target.value);
   }
 
   function isValidInput() {
-    console.log("Form isValidInput");
     if (props.userInput.toLowerCase() === props.pokemon.name) {
       return true;
     }
@@ -33,7 +31,6 @@ function Form(props) {
   }
 
   useEffect(() => {
-    console.log("Form useEffect");
     if (isValidInput() && props.isHidden) {
       props.setIsHidden(false);
       props.setCaughtCount(props.caughtCount + 1);
@@ -45,7 +42,6 @@ function Form(props) {
   }, [props.pokemon.id]);
 
   function revealPokemon() {
-    console.log("Form revealPokemon");
     props.setIsHidden(false);
   }
 
