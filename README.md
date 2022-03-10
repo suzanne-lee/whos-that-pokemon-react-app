@@ -6,6 +6,8 @@ View the hosted project [here!](https://youthful-bassi-d20dc8.netlify.app/) 🌟
 
 Inspired by the segment in the original TV series, *Who's That Pokemon?* is a single-page web game that allows users to try and identify hidden Pokemon. *Who's That Pokemon?* is built using HTML, CSS, JavaScript, ReactJS, and Bootstrap.
 
+This project uses [PokeAPI](https://pokeapi.co/) to get Pokemon data (such as name and type). The images used in this project can be found on [Bulbapedia](https://bulbapedia.bulbagarden.net/wiki/Main_Page).
+
 <img height="500" alt="Screen Shot 2022-03-09 at 4 48 45 PM" src="https://user-images.githubusercontent.com/29237731/157548827-ca40df4a-6a7f-42f9-8d04-654ea6d99b67.png"> <img height="500" alt="Screen Shot 2022-03-09 at 4 48 55 PM" src="https://user-images.githubusercontent.com/29237731/157548749-7b3df5c5-3eee-4e79-bc0b-c1f4f15da99c.png">
 
 
@@ -45,6 +47,8 @@ Inspired by the segment in the original TV series, *Who's That Pokemon?* is a si
   - Allow users to save their stats to a public leaderboard
 - Responsiveness
   - Ensure game is mobile-friendly
+- User feedback
+  - Messages that tell the user they're doing well 
 
 ## Set Up Instructions 
 
